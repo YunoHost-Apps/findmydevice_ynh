@@ -25,7 +25,7 @@ You can also push commands to the FMD app on your device from FMD Server, e.g. t
 
 ## 截图
 
-![Find My Device 的截图](./doc/screenshots/example.jpg)
+![Find My Device 的截图](./doc/screenshots/screenshot.png)
 
 ## 文档与资源
 

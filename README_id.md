@@ -25,7 +25,7 @@ You can also push commands to the FMD app on your device from FMD Server, e.g. t
 
 ## Tangkapan Layar
 
-![Tangkapan Layar pada Find My Device](./doc/screenshots/example.jpg)
+![Tangkapan Layar pada Find My Device](./doc/screenshots/screenshot.png)
 
 ## Dokumentasi dan sumber daya
 

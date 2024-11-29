@@ -25,7 +25,7 @@ You can also push commands to the FMD app on your device from FMD Server, e.g. t
 
 ## Pantaila-argazkiak
 
-![Find My Device(r)en pantaila-argazkia](./doc/screenshots/example.jpg)
+![Find My Device(r)en pantaila-argazkia](./doc/screenshots/screenshot.png)
 
 ## Dokumentazioa eta baliabideak
 

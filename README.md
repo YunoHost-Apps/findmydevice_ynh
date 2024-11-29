@@ -25,7 +25,7 @@ You can also push commands to the FMD app on your device from FMD Server, e.g. t
 
 ## Screenshots
 
-![Screenshot of Find My Device](./doc/screenshots/example.jpg)
+![Screenshot of Find My Device](./doc/screenshots/screenshot.png)
 
 ## Documentation and resources
 

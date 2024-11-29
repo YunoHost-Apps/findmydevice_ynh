@@ -25,7 +25,7 @@ You can also push commands to the FMD app on your device from FMD Server, e.g. t
 
 ## Schermafdrukken
 
-![Schermafdrukken van Find My Device](./doc/screenshots/example.jpg)
+![Schermafdrukken van Find My Device](./doc/screenshots/screenshot.png)
 
 ## Documentatie en bronnen
 
