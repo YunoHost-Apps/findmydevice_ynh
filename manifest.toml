@@ -5,7 +5,7 @@ packaging_format = 2
 id = "findmydevice"
 name = "Find My Device"
 description.en = "Server for saving location data send by fmd"
-description.fr = "Server for saving location data send by fmd"
+description.fr = "Serveur pour l'enregistrement des données de localisation envoyées par le fmd"
 
 version = "0.8.0~ynh2"
 
