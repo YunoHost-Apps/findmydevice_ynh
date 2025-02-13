@@ -4,15 +4,15 @@ packaging_format = 2
 
 id = "findmydevice"
 name = "Find My Device"
-description.en = "Server for saving location data send by fmd"
-description.fr = "Serveur pour l'enregistrement des données de localisation envoyées par le fmd"
+description.en = "Server for saving location data send by FMD"
+description.fr = "Serveur de sauvegarde des données de localisation envoyées par FMD"
 
 version = "0.8.0~ynh2"
 
 maintainers = ["eric_G"]
 
 [upstream]
-license = "     GPL-3.0-or-later"
+license = "GPL-3.0-or-later"
 code = "https://gitlab.com/Nulide/findmydeviceserver"
 
 [integration]
