@@ -21,7 +21,7 @@ Il NE doit PAS être modifié à la main.
 The FMD app can register an account on FMD Server. The app can then upload its location at regular intervals.
 You can also push commands to the FMD app on your device from FMD Server, e.g. to make your device ring.
 
-**Version incluse :** 0.8.0~ynh2
+**Version incluse :** 0.10.0~ynh1
 
 ## Captures d’écran
 
