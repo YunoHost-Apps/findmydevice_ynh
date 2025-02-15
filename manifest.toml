@@ -38,7 +38,9 @@ ram.runtime = "50M"
 
 	[install.allow_public_registration]
 	ask.en = "Do you want to allow public registration?"
+	ask.fr = "Souhaitez-vous autoriser l'enregistrement publique ?"
 	help.en = "When public there is no need to know the token to register."
+	help.fr = "Si oui, il n'y a pas besoin de saisir le token pour s'enregistrer."
 	type = "boolean"
 	default = true
 
