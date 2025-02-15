@@ -15,13 +15,13 @@ ynh_abort_if_errors
 # SPECIFIC SETTERS
 #=================================================
 
-set__new_token() {
+set__token() {
 
-	ynh_app_setting_set --app="$app" --key=token --value="$new_token"
+	ynh_app_setting_set --app="$app" --key=token --value="$token"
 
 	# save the new setting in the FMD config file
 	ynh_print_info --message="Saving the new registration token in the FMD configuration..."
-	ynh_write_var_in_file --file="$data_dir/config.yml" --key="RegistrationToken" --value="$new_token"
+	ynh_write_var_in_file --file="$data_dir/config.yml" --key="RegistrationToken" --value="$token"
 }
 
 #=================================================

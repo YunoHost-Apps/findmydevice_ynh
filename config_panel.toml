@@ -13,7 +13,7 @@ services = ["__APP__"]
 	name.en = "Configure FindMyDevice options"
 	name.fr = "Options de configuration de FindMyDevice"
 
-		[main.customization.new_token]
+		[main.customization.token]
 		ask.en = "Add or change the registration token."
 		ask.fr = "Ajoutez ou modifiez le token pour s'enregistrer."
 		help.en = "If leave it empty and save, a token is not needed to be able to register. You can retrieve the current token in the webadmin app info view. "

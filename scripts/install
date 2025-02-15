@@ -43,7 +43,7 @@ yunohost service add $app --description="Server for saving location data send by
 #=================================================
 ynh_script_progression "Adding $app's configuration..."
 
-if $allow_public_registration
+if [ $allow_public_registration = 1 ]
 then
 	token=""
 else
