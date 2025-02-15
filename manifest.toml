@@ -9,7 +9,7 @@ description.fr = "Serveur de sauvegarde des données de localisation envoyées p
 
 version = "0.10.0~ynh2"
 
-maintainers = []
+maintainers = ["ewilly"]
 
 [upstream]
 license = "GPL-3.0-or-later"
