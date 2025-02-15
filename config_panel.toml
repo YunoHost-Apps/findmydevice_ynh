@@ -1,0 +1,21 @@
+#:schema https://github.com/YunoHost/apps/raw/master/schemas/config_panel.v1.schema.json
+
+version = "1.0"
+
+[main]
+name.en = "FindMyDevice configuration"
+name.fr = "Configuration de FindMyDevice"
+help.en = "If any trouble or question, please refer to the admin documentation right below!"
+help.fr = "En cas de problème ou questionnement, référez-vous au guide d'administration en bas de la page !"
+services = ["__APP__"]
+
+	[main.customization]
+	name.en = "Configure FindMyDevice options"
+	name.fr = "Options de configuration de FindMyDevice"
+
+		[main.customization.new_token]
+		ask.en = "Add or change the registration token."
+		ask.en = "Ajoutez ou modifiez le token pour s'enregistrer."
+		help.en = "If leave it empty and save, a token is not needed to be able to register. You can retrieve the current token in the webadmin app info view. "
+		help.fr = "Si vous le laissez vide et sauvegarder, le renseignement du token n'est pas nécessaire pour s'enregister. Le token actuel est visible sur la page d'info de l'app."
+		type = "string"

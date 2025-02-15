@@ -34,6 +34,8 @@ ynh_config_add_nginx
 
 ynh_config_add_systemd
 
+ynh_config_add_logrotate
+
 yunohost service add $app --description="Server for saving location data send by fmd" --log="/var/log/$app/$app.log"
 
 #=================================================
@@ -41,14 +43,27 @@ yunohost service add $app --description="Server for saving location data send by
 #=================================================
 ynh_script_progression "Adding $app's configuration..."
 
-ynh_config_add --template="config.example.yml" --destination="$install_dir/config.yml"
+if $allow_public_registration
+then
+	token=""
+else
+	token=$(ynh_string_random --length=8)
+fi
+ynh_app_setting_set --key=token --value="$token"
+ynh_config_add --template="config.example.yml" --destination="$data_dir/config.yml"
+
+#=================================================
+# SET FILE OWNERSHIP / PERMISSIONS
+#=================================================
+
+myynh_set_permissions
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service=$app --action="start"
+ynh_systemctl --service=$app --action="start" --wait_until="Listening on port" --log_path="/var/log/$app/$app.log" --timeout=900
 
 #=================================================
 # END OF SCRIPT
