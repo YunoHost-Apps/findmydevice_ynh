@@ -11,11 +11,25 @@ ynh_script_progression "Stopping $app's systemd service..."
 ynh_systemctl --service=$app --action="stop"
 
 #=================================================
+# ENSURE DOWNWARD COMPATIBILITY
+#=================================================
+ynh_script_progression "Ensuring downward compatibility..."
+
+if ynh_app_upgrading_from_version_before 0.10.0~ynh2
+then
+	mv "$install_dir/config.yml" "$data_dir/"
+	mv "$install_dir/db" "$data_dir/"
+	ynh_app_setting_set --key=token --value=""
+fi
+
+#=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
-ynh_setup_source --dest_dir="$install_dir" --keep = "config.yml"
+ynh_safe_rm "$install_dir"
+mkdir -p "$install_dir"
+ynh_setup_source --dest_dir="$install_dir"
 
 #=================================================
 # BUILD APP
@@ -30,8 +44,6 @@ popd
 
 ynh_go_remove
 
-chmod +x "$install_dir/findmydevice"
-
 #=================================================
 # REAPPLY SYSTEM CONFIGURATIONS
 #=================================================
@@ -41,21 +53,22 @@ ynh_config_add_nginx
 
 ynh_config_add_systemd
 
+ynh_config_add_logrotate
+
 yunohost service add $app --description="Server for saving location data send by fmd" --log="/var/log/$app/$app.log"
 
 #=================================================
-# UPDATE A CONFIG FILE
+# SET FILE OWNERSHIP / PERMISSIONS
 #=================================================
-#ynh_script_progression "Updating configuration..."
 
-#ynh_config_add --template="config.example.yml" --destination="$install_dir/config.yml"
+myynh_set_permissions
 
 #=================================================
 # START SYSTEMD SERVICE
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service=$app --action="start"
+ynh_systemctl --service=$app --action="start" --wait_until="listening on" --log_path="/var/log/$app/$app.log" --timeout=900
 
 #=================================================
 # END OF SCRIPT
