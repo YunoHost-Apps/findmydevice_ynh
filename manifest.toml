@@ -7,7 +7,7 @@ name = "Find My Device"
 description.en = "Server for saving location data send by FMD"
 description.fr = "Serveur de sauvegarde des données de localisation envoyées par FMD"
 
-version = "0.10.0~ynh2"
+version = "0.10.0~ynh3"
 
 maintainers = ["ewilly"]
 
@@ -64,3 +64,6 @@ ram.runtime = "50M"
 	main.url = "/"
 
 	[resources.ports]
+
+	[resources.apt]
+	packages = [ "build-essential" ]
