@@ -52,7 +52,7 @@ ram.runtime = "50M"
 		url = "https://gitlab.com/Nulide/findmydeviceserver/-/archive/v0.10.0/findmydeviceserver-v0.10.0.tar.gz"
 		sha256 = "77f3030c430d82d19b9bfaf7d07b493c0e3625b99d5c7dd0d9fcc99a19dca3bc"
 
-		autoupdate.strategy = "latest_github_tag"
+		autoupdate.strategy = "latest_gitlab_tag"
 
 	[resources.system_user]
 

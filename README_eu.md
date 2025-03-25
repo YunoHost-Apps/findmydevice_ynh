@@ -37,7 +37,7 @@ You can also push commands to the FMD app on your device from FMD Server, e.g. t
 
 Bidali `pull request`a [`testing` abarrera](https://github.com/YunoHost-Apps/findmydevice_ynh/tree/testing).
 
-`testing` abarra probatzeko, ondorengoa egin:
+`testing` abarra probatzeko, honakoa egin:
 
 ```bash
 sudo yunohost app install https://github.com/YunoHost-Apps/findmydevice_ynh/tree/testing --debug
