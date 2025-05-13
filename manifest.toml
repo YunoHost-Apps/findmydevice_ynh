@@ -7,7 +7,7 @@ name = "Find My Device"
 description.en = "Server for saving location data send by FMD"
 description.fr = "Serveur de sauvegarde des données de localisation envoyées par FMD"
 
-version = "0.10.0~ynh3"
+version = "0.11.0~ynh1"
 
 maintainers = ["ewilly"]
 
@@ -49,8 +49,8 @@ ram.runtime = "50M"
 	[resources.sources]
 
 		[resources.sources.main]
-		url = "https://gitlab.com/Nulide/findmydeviceserver/-/archive/v0.10.0/findmydeviceserver-v0.10.0.tar.gz"
-		sha256 = "77f3030c430d82d19b9bfaf7d07b493c0e3625b99d5c7dd0d9fcc99a19dca3bc"
+		url = "https://gitlab.com/Nulide/findmydeviceserver/-/archive/v0.11.0/findmydeviceserver-v0.11.0.tar.bz2"
+		sha256 = "98046ef97e70127b4ffac53a1a8fd5ff734b261016c317190adba5e477756516"
 
 		autoupdate.strategy = "latest_gitlab_tag"
 
