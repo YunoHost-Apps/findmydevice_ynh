@@ -6,6 +6,9 @@
 
 go_version="1.22"
 
+# Fail2ban
+failregex='^.*"remoteIp":"<ADDR>:?\d*".*"message":"(?:failed|blocked) login attempt".*$'
+
 # Set permissions
 myynh_set_permissions() {
 	chown -R $app: "$install_dir"

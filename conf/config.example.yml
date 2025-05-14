@@ -1,6 +1,12 @@
 # This is an example config file for FMD Server
 
+# You can comment out or completely delete settings that you don't need.
+# FMD Server will automatically fall back to the default value if a field is not set.
+
 # Listening precedence: socket > HTTPS > HTTP
+
+DatabaseDir: "__DATA_DIR__/db/"
+WebDir: "__INSTALL_DIR__/web/"
 
 # Path to listening UNIX socket. If empty, no unix sockets will be used.
 UnixSocketPath: "" # /tmp/fmd.sock
@@ -31,3 +37,9 @@ RegistrationToken: "__TOKEN__"
 # Paths to the server cert and private key (for letting Go terminate TLS)
 ServerCrt: "" # /path/to/fullchain.pem
 ServerKey: "" # /path/to/privkey.pem
+
+# The name of the header field in which your reverse proxy records the remote IP of the client being proxied.
+# Keep this empty if you are not using a reverse proxy.
+# Security warning: your reverse proxy MUST set this header!
+# If the value of this header comes from an untrusted location (e.g., it is set by the original client), this can lead to security issues.
+RemoteIpHeader: "X-Real-IP"

@@ -36,6 +36,8 @@ ynh_config_add_systemd
 
 ynh_config_add_logrotate
 
+ynh_config_add_fail2ban --logpath="/var/log/$app/$app.log" --failregex="$failregex"
+
 yunohost service add $app --description="Server for saving location data send by fmd" --log="/var/log/$app/$app.log"
 
 #=================================================
