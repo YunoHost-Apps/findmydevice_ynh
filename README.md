@@ -21,7 +21,7 @@ Server for saving location data send by FMD
 
 [![Automatic tests level](https://apps.yunohost.org/badge/cilevel/findmydevice)](https://ci-apps.yunohost.org/ci/apps/findmydevice/)
 
-🛠️ Upstream Find My Device repository: <https://gitlab.com/Nulide/findmydeviceserver>
+🛠️ Upstream Find My Device repository: <https://gitlab.com/fmd-foss/fmd-server>
 
 Pull request are welcome and should target the [`testing` branch](https://github.com/YunoHost-Apps/findmydevice_ynh/tree/testing).
 
