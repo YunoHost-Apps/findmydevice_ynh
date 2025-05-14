@@ -13,7 +13,7 @@ maintainers = ["ewilly"]
 
 [upstream]
 license = "GPL-3.0-or-later"
-code = "https://gitlab.com/Nulide/findmydeviceserver"
+code = "https://gitlab.com/fmd-foss/fmd-server"
 
 [integration]
 yunohost = ">= 12.0.9"
@@ -49,8 +49,8 @@ ram.runtime = "50M"
 	[resources.sources]
 
 		[resources.sources.main]
-		url = "https://gitlab.com/Nulide/findmydeviceserver/-/archive/v0.11.0/findmydeviceserver-v0.11.0.tar.bz2"
-		sha256 = "98046ef97e70127b4ffac53a1a8fd5ff734b261016c317190adba5e477756516"
+		url = "https://gitlab.com/fmd-foss/fmd-server/-/archive/v0.11.0/fmd-server-v0.11.0.tar.gz"
+		sha256 = "58e0e2206182074cf15ada63edec33bbd9c7844a4162e265532c583d4285d87f"
 
 		autoupdate.strategy = "latest_gitlab_tag"
 
