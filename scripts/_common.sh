@@ -7,7 +7,7 @@
 go_version="1.22"
 
 # Fail2ban
-failregex='^.*"remoteIp":"<ADDR>:?\d*".*"message":"(?:failed|blocked) login attempt".*$'
+failregex="(?:failed|blocked) login attempt remoteIp=<HOST> userid=.*$"
 
 # Set permissions
 myynh_set_permissions() {
