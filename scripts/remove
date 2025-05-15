@@ -14,6 +14,8 @@ fi
 
 ynh_config_remove_systemd
 
+ynh_config_remove_fail2ban
+
 ynh_config_remove_logrotate
 
 ynh_config_remove_nginx
