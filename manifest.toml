@@ -13,6 +13,8 @@ maintainers = ["ewilly"]
 
 [upstream]
 license = "GPL-3.0-or-later"
+website = "https://fmd-foss.org/"
+admindoc = "https://fmd-foss.org/docs/fmd-server/overview"
 code = "https://gitlab.com/fmd-foss/fmd-server"
 
 [integration]
