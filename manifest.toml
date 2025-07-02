@@ -13,6 +13,8 @@ maintainers = ["ewilly"]
 
 [upstream]
 license = "GPL-3.0-or-later"
+website = "https://fmd-foss.org/"
+admindoc = "https://fmd-foss.org/docs/fmd-server/overview"
 code = "https://gitlab.com/fmd-foss/fmd-server"
 
 [integration]
@@ -24,9 +26,9 @@ multi_instance = false
 ldap = false
 sso = false
 
-disk = "50M"
-ram.build = "50M"
-ram.runtime = "50M"
+disk = "1000M"
+ram.build = "600M"
+ram.runtime = "70M"
 
 [install]
 	[install.domain]

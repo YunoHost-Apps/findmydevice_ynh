@@ -27,9 +27,7 @@ fi
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
-ynh_safe_rm "$install_dir"
-mkdir -p "$install_dir"
-ynh_setup_source --dest_dir="$install_dir"
+ynh_setup_source --dest_dir="$install_dir" --full_replace
 
 #=================================================
 # BUILD APP
@@ -49,7 +47,6 @@ ynh_go_remove
 #=================================================
 ynh_script_progression "Updating $app's configuration files..."
 
-port=$(ynh_app_setting_get --key=port)
 token=$(ynh_app_setting_get --key=token)
 ynh_config_add --template="config.example.yml" --destination="$data_dir/config.yml"
 
@@ -79,7 +76,7 @@ myynh_set_permissions
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service=$app --action="start" --wait_until="listening on" --log_path="/var/log/$app/$app.log" --timeout=900
+ynh_systemctl --service=$app --action="start" --log_path="/var/log/$app/$app.log"
 
 #=================================================
 # END OF SCRIPT

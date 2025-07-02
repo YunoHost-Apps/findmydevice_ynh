@@ -23,8 +23,6 @@ popd
 
 ynh_go_remove
 
-chmod +x "$install_dir/findmydevice"
-
 #=================================================
 # SYSTEM CONFIGURATION
 #=================================================
@@ -65,9 +63,10 @@ myynh_set_permissions
 #=================================================
 ynh_script_progression "Starting $app's systemd service..."
 
-ynh_systemctl --service=$app --action="start" --wait_until="listening on" --log_path="/var/log/$app/$app.log" --timeout=900
+ynh_systemctl --service=$app --action="start" --log_path="/var/log/$app/$app.log"
 
 #=================================================
 # END OF SCRIPT
 #=================================================
+
 ynh_script_progression "Installation of $app completed"
