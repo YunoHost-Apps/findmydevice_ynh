@@ -1,4 +1,4 @@
-p#!/bin/bash
+#!/bin/bash
 
 source _common.sh
 source /usr/share/yunohost/helpers
