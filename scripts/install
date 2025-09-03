@@ -15,13 +15,9 @@ ynh_setup_source --dest_dir="$install_dir"
 #=================================================
 ynh_script_progression "Building $app..."
 
-#REMOVEME? ynh_go_install
-
 pushd $install_dir
 	ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 go build -o findmydevice
 popd
-
-#REMOVEME? ynh_go_remove
 
 #=================================================
 # SYSTEM CONFIGURATION
