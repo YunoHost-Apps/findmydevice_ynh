@@ -4,8 +4,6 @@
 # COMMON VARIABLES AND CUSTOM HELPERS
 #=================================================
 
-go_version="1.24"
-
 # Fail2ban
 failregex="(?:failed|blocked) login attempt remoteIp=<HOST> userid=.*$"
 
