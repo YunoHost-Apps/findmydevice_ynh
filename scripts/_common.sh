@@ -10,7 +10,9 @@ failregex="(?:failed|blocked) login attempt remoteIp=<HOST> userid=.*$"
 # build
 myynh_build() {
 	cd "$install_dir/source"
-	ynh_hide_warnings CGO_ENABLED=1 go build -o findmydevice
+	export CGO_ENABLED=1
+	ynh_hide_warnings go build -o findmydevice
+	unset CGO_ENABLED
 	mv "web" "$install_dir"
 	mv "LICENSE" "$install_dir"
 	mv "findmydevice" "$install_dir"
