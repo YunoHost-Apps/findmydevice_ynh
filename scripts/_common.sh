@@ -16,6 +16,9 @@ myynh_build() {
 	mv "$install_dir/source/web" "$install_dir"
 	mv "$install_dir/source/LICENSE" "$install_dir"
 	ynh_safe_rm "$install_dir/source"
+	ynh_safe_rm "$install_dir/.cache"
+	ynh_safe_rm "$install_dir/.config"
+	ynh_safe_rm "$install_dir/go"
 }
 
 # Set permissions
