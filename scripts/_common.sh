@@ -11,8 +11,10 @@ failregex="(?:failed|blocked) login attempt remoteIp=<HOST> userid=.*$"
 myynh_build() {
 	chown -R $app: "$install_dir"
 	pushd "$install_dir/source"
-		ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 go build -o "$install_dir/findmydevice"
+		ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 go build -o "$install_dir/build/findmydevice"
 	popd
+	mv "$install_dir/build/findmydevice" "$install_dir"
+	ynh_safe_rm "$install_dir/build"
 	mv "$install_dir/source/web" "$install_dir"
 	mv "$install_dir/source/LICENSE" "$install_dir"
 	ynh_safe_rm "$install_dir/source"
