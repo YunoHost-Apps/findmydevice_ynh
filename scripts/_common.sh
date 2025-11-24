@@ -12,8 +12,8 @@ myynh_build() {
 	pushd "$install_dir/source"
 		ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 go build -o "$install_dir/"
 	popd
-	mv "web" "$install_dir"
-	mv "LICENSE" "$install_dir"
+	mv "$install_dir/source/web" "$install_dir"
+	mv "$install_dir/source/LICENSE" "$install_dir"
 	ynh_safe_rm "$install_dir/source"
 }
 
