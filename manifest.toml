@@ -53,7 +53,7 @@ ram.runtime = "70M"
 
 		[resources.sources.main]
 		url = "https://gitlab.com/fmd-foss/fmd-server/-/archive/v0.13.0/fmd-server-v0.13.0.tar.gz"
-		sha256 = "06963f13b422bf25009bf5c37338b0887cdff186ccec3024f4ac556b38c61c61"
+		sha256 = "2386d89af88870d75b70721aa2a930fcfc70cf66f437e7b4dbe9dfe597d4afc2"
 
 		autoupdate.strategy = "latest_gitlab_release"
 
