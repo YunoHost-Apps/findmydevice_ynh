@@ -8,16 +8,14 @@ source /usr/share/yunohost/helpers
 #=================================================
 ynh_script_progression "Setting up source files..."
 
-ynh_setup_source --dest_dir="$install_dir"
+ynh_setup_source --dest_dir="$install_dir/source"
 
 #=================================================
 # BUILD APP
 #=================================================
 ynh_script_progression "Building $app..."
 
-pushd $install_dir
-	ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 go build -o findmydevice
-popd
+myynh_build
 
 #=================================================
 # SYSTEM CONFIGURATION
