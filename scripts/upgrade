@@ -27,6 +27,7 @@ fi
 #=================================================
 ynh_script_progression "Upgrading source files..."
 
+ynh_safe_rm "$install_dir"
 ynh_setup_source --dest_dir="$install_dir/source"
 
 #=================================================
@@ -34,7 +35,6 @@ ynh_setup_source --dest_dir="$install_dir/source"
 #=================================================
 ynh_script_progression "Building $app..."
 
-ynh_safe_rm "$install_dir/web"
 myynh_build
 
 #=================================================
