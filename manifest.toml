@@ -52,10 +52,10 @@ ram.runtime = "70M"
 	[resources.sources]
 
 		[resources.sources.main]
-		url = "https://gitlab.com/fmd-foss/fmd-server/-/archive/v0.13.0/fmd-server-v0.13.0.tar.bz2"
+		url = "https://gitlab.com/fmd-foss/fmd-server/-/archive/v0.13.0/fmd-server-v0.13.0.tar.gz"
 		sha256 = "06963f13b422bf25009bf5c37338b0887cdff186ccec3024f4ac556b38c61c61"
 
-		autoupdate.strategy = "latest_gitlab_tag"
+		autoupdate.strategy = "latest_gitlab_release"
 
 	[resources.system_user]
 
@@ -67,6 +67,8 @@ ram.runtime = "70M"
 	main.url = "/"
 
 	[resources.ports]
+	main.default = 8080
+	prometheus.default = 9100
 
 	[resources.apt]
 	packages = [ "build-essential" ]
