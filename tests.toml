@@ -13,9 +13,7 @@ test_format = 1.0
 	# -------------------------------
 
 	# -------------------------------
-	# Commits to test upgrade from f953f41777ae96eaa92b0f517c08d51a5f4c9a65
-	# 0.8.0~ynh2
+	# Commits to test upgrade from
 	# -------------------------------
 		#test_upgrade_from.f953f41777ae96eaa92b0f517c08d51a5f4c9a65.name = "Upgrade from 0.8.0~ynh2"
-		#test_upgrade_from.f953f41777ae96eaa92b0f517c08d51a5f4c9a65.args.domain = "sub.domain.tld"
-		#test_upgrade_from.f953f41777ae96eaa92b0f517c08d51a5f4c9a65.args.init_main_permission = "visitors"
+		test_upgrade_from.85a27b36a8bf0211f28ba580e7246b8fc2dcdc86.name = "Upgrade from 0.12.0~ynh1"
