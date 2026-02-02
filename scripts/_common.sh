@@ -42,8 +42,6 @@ myynh_build() {
 
 	# Compile the Go code into a static Go binary export
 		pushd "$install_dir/source"
-			export GOPATH="$install_dir/source/go"
-			export GOCACHE="$install_dir/source/.cache"
 			ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 go build -o "$install_dir/findmydevice"
 		popd
 
@@ -52,11 +50,12 @@ myynh_build() {
 		mv "$install_dir/source/LICENSE" "$install_dir"
 
 	# Cleaning
-		#ynh_safe_rm "$install_dir/source"
-		#ynh_safe_rm "$install_dir/.cache"
-		#ynh_safe_rm "$install_dir/.config"
-		#ynh_safe_rm "$install_dir/go"
-		#ynh_safe_rm "$install_dir/.go-version"
+		ynh_safe_rm "$install_dir/.cache"
+		ynh_safe_rm "$install_dir/.config"
+		ynh_safe_rm "$install_dir/go"
+		ynh_safe_rm "$install_dir/.go-version"
+		ynh_safe_rm "$install_dir/.local"
+		ynh_safe_rm "$install_dir/source"
 }
 
 # Set permissions
