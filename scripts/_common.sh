@@ -34,13 +34,13 @@ myynh_build() {
 
 	# Compile the React app as a static site
 		pushd "$install_dir/source/web"
-				ynh_hide_warnings ynh_exec_as_app pnpm install
-				ynh_hide_warnings ynh_exec_as_app pnpm build
+			ynh_hide_warnings ynh_exec_as_app pnpm install
+			ynh_hide_warnings ynh_exec_as_app pnpm build
 		popd
 
 	# Compile the Go code into a static Go binary
 		pushd "$install_dir/source"
-				ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 go build -o "$install_dir/findmydevice"
+			ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 go build -o "$install_dir/findmydevice"
 		popd
 
 	# Move necessary files
@@ -48,10 +48,12 @@ myynh_build() {
 		mv "$install_dir/source/LICENSE" "$install_dir"
 
 	# Cleaning
-		ynh_safe_rm "$install_dir/source"
-		ynh_safe_rm "$install_dir/.cache"
-		ynh_safe_rm "$install_dir/.config"
-		ynh_safe_rm "$install_dir/go"
+		#ynh_hide_warnings ynh_exec_as_app NODE_ENV=production pnpm prune
+		#ynh_hide_warnings ynh_exec_as_app pnpm store prune
+		#ynh_safe_rm "$install_dir/source"
+		#ynh_safe_rm "$install_dir/.cache"
+		#ynh_safe_rm "$install_dir/.config"
+		#ynh_safe_rm "$install_dir/go"
 }
 
 # Set permissions
