@@ -18,7 +18,7 @@ myynh_build() {
 			ynh_hide_warnings corepack enable && corepack prepare pnpm@latest --activate
 			ynh_hide_warnings ynh_exec_as_app pnpm install
 			ynh_print_info "here3"
-			ynh_hide_warnings ynh_exec_as_app CI=false pnpm build
+			ynh_hide_warnings ynh_exec_as_app pnpm build > /dev/null
 			ynh_print_info "here4"
 		popd
 
