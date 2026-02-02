@@ -17,7 +17,7 @@ myynh_build() {
 		pushd "$install_dir/source/web"
 			ynh_hide_warnings corepack enable && corepack prepare pnpm@latest --activate
 			ynh_hide_warnings ynh_exec_as_app pnpm install
-			ynh_hide_warnings ynh_exec_as_app pnpm build --no-color
+			ynh_hide_warnings ynh_exec_as_app pnpm build --no-color --no-progress --reporter=append-only
 		popd
 
 	# Compile the Go code into a static Go binary
