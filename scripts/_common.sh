@@ -15,11 +15,13 @@ myynh_build() {
 	# Compile the React app as a static site
 		ynh_print_info "Compiling the React app as a static site..."
 		pushd "$install_dir/source/web"
-			corepack enable
-			ynh_hide_warnings npm install --global corepack@latest
-			ynh_hide_warnings corepack prepare pnpm@latest --activate
+			ynh_print_info "here1"
+			ynh_hide_warnings corepack enable && corepack prepare pnpm@latest --activate
+			ynh_print_info "here2"
 			ynh_hide_warnings ynh_exec_as_app pnpm install
-			ynh_hide_warnings ynh_exec_as_app NODE_ENV=production pnpm build
+			ynh_print_info "here3"
+			ynh_hide_warnings ynh_exec_as_app pnpm build
+			ynh_print_info "here4"
 		popd
 
 	# Compile the Go code into a static Go binary
