@@ -20,7 +20,7 @@ myynh_build() {
 			ynh_print_info "here2"
 			ynh_hide_warnings ynh_exec_as_app pnpm install
 			ynh_print_info "here3"
-			ynh_hide_warnings ynh_exec_as_app pnpm build
+			ynh_hide_warnings ynh_exec_as_app CI=true pnpm build
 			ynh_print_info "here4"
 		popd
 
