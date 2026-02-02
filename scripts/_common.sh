@@ -24,6 +24,7 @@ myynh_build() {
 			export NODE_ENV=production
 
 		## Install pnpm
+			ynh_print_info "here1"
 			ynh_hide_warnings npm install --global corepack@latest
 			export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
 			export CI=1
@@ -33,11 +34,13 @@ myynh_build() {
 			ynh_hide_warnings corepack use pnpm@latest-$pnpm_version
 
 		## Print versions
+			ynh_print_info "here1"
 			echo "node version: $(node -v)"
 			echo "npm version: $(npm -v)"
 			echo "pnpm version: $(pnpm -v)"
 
 		## Builing with pnpm
+			ynh_print_info "here3"
 			pushd "$install_dir/source/web"
 				ynh_hide_warnings ynh_exec_as_app pnpm install
 				ynh_hide_warnings ynh_exec_as_app pnpm build
