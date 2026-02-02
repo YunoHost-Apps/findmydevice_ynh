@@ -16,11 +16,18 @@ myynh_build() {
 		ynh_print_info "Compiling the React app as a static site..."
 
 		## Define nodejs options
+
+			ynh_print_info "here1"
 			ram_G=$((($(ynh_get_ram --free) - (1024/2))/1024))
+			ynh_print_info "here1"
 			ram_G=$(($ram_G > 1 ? $ram_G : 1))
+			ynh_print_info "here1"
 			ram_G=$(($ram_G > 8 ? 8 : $ram_G))
+			ynh_print_info "here1"
 			ram_G=$(($ram_G*1024))
+			ynh_print_info "here1"
 			export NODE_OPTIONS="${NODE_OPTIONS:-} --max_old_space_size=$ram_G"
+			ynh_print_info "here1"
 			export NODE_ENV=production
 
 		## Install pnpm
@@ -40,7 +47,7 @@ myynh_build() {
 			echo "pnpm version: $(pnpm -v)"
 
 		## Builing with pnpm
-			ynh_print_info "here3"
+			ynh_print_info "here1"
 			pushd "$install_dir/source/web"
 				ynh_hide_warnings ynh_exec_as_app pnpm install
 				ynh_hide_warnings ynh_exec_as_app pnpm build
