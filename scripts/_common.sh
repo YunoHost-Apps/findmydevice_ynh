@@ -12,44 +12,50 @@ myynh_build() {
 	# Prepare install_dir
 		chown -R $app: "$install_dir"
 
-	# Define nodejs options
-		ram_G=$((($(ynh_get_ram --free) - (1024/2))/1024))
-		ram_G=$(($ram_G > 1 ? $ram_G : 1))
-		ram_G=$(($ram_G > 8 ? 8 : $ram_G))
-		ram_G=$(($ram_G*1024))
-		export NODE_OPTIONS="${NODE_OPTIONS:-} --max_old_space_size=$ram_G"
-		export NODE_ENV=production
-
-	# Install pnpm
-		ynh_hide_warnings npm install --global corepack@latest
-		export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
-		export CI=1
-		pnpm_version=$(cat "$install_dir/source/web/package.json" \
-			| jq -r '.packageManager | split("@")[1] | split(".")[0]') #10
-		ynh_hide_warnings corepack enable pnpm
-		ynh_hide_warnings corepack use pnpm@latest-$pnpm_version
-
-	# Print versions
-		echo "node version: $(node -v)"
-		echo "npm version: $(npm -v)"
-		echo "pnpm version: $(pnpm -v)"
-
 	# Compile the React app as a static site
-		pushd "$install_dir/source/web"
-			ynh_hide_warnings ynh_exec_as_app pnpm install
-			ynh_hide_warnings ynh_exec_as_app pnpm build
-		popd
+		ynh_print_info "Compiling the React app as a static site..."
 
-	# Compile the Go code into a static Go binary export
+		## Define nodejs options
+			ram_G=$((($(ynh_get_ram --free) - (1024/2))/1024))
+			ram_G=$(($ram_G > 1 ? $ram_G : 1))
+			ram_G=$(($ram_G > 8 ? 8 : $ram_G))
+			ram_G=$(($ram_G*1024))
+			export NODE_OPTIONS="${NODE_OPTIONS:-} --max_old_space_size=$ram_G"
+			export NODE_ENV=production
+
+		## Install pnpm
+			ynh_hide_warnings npm install --global corepack@latest
+			export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
+			export CI=1
+			pnpm_version=$(cat "$install_dir/source/web/package.json" \
+				| jq -r '.packageManager | split("@")[1] | split(".")[0]') #10
+			ynh_hide_warnings corepack enable pnpm
+			ynh_hide_warnings corepack use pnpm@latest-$pnpm_version
+
+		## Print versions
+			echo "node version: $(node -v)"
+			echo "npm version: $(npm -v)"
+			echo "pnpm version: $(pnpm -v)"
+
+		## Builing with pnpm
+			pushd "$install_dir/source/web"
+				ynh_hide_warnings ynh_exec_as_app pnpm install
+				ynh_hide_warnings ynh_exec_as_app pnpm build
+			popd
+
+	# Compile the Go code into a static Go binary
+		ynh_print_info "Compiling the Go code into a static Go binary..."
 		pushd "$install_dir/source"
 			ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 go build -o "$install_dir/findmydevice"
 		popd
 
 	# Move necessary files
+		ynh_print_info "Setting up built files..."
 		mv "$install_dir/source/web/dist" "$install_dir/web"
 		mv "$install_dir/source/LICENSE" "$install_dir"
 
 	# Cleaning
+		ynh_print_info "Cleaning up..."
 		ynh_safe_rm "$install_dir/.cache"
 		ynh_safe_rm "$install_dir/.config"
 		ynh_safe_rm "$install_dir/go"
