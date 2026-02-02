@@ -41,9 +41,9 @@ myynh_build() {
 		popd
 
 	# Compile the Go code into a static Go binary export
-		export GOPATH="$install_dir/source/go"
-		export GOCACHE="$install_dir/source/.cache"
 		pushd "$install_dir/source"
+			export GOPATH="$install_dir/source/go"
+			export GOCACHE="$install_dir/source/.cache"
 			ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 go build -o "$install_dir/findmydevice"
 		popd
 
