@@ -14,44 +14,13 @@ myynh_build() {
 
 	# Compile the React app as a static site
 		ynh_print_info "Compiling the React app as a static site..."
-
-		## Define nodejs options
-			ynh_print_info "here1"
-			ram_G=$((($(ynh_get_ram --free) - (1024/2))/1024))
-			ynh_print_info "here2"
-			ram_G=$(($ram_G > 1 ? $ram_G : 1))
-			ynh_print_info "here3"
-			ram_G=$(($ram_G > 8 ? 8 : $ram_G))
-			ynh_print_info "here4"
-			ram_G=$(($ram_G*1024))
-			ynh_print_info "here5"
-			export NODE_OPTIONS="${NODE_OPTIONS:-} --max_old_space_size=$ram_G"
-			ynh_print_info "here6"
-			export NODE_ENV=production
-
-		## Install pnpm
-			ynh_print_info "here7"
+		pushd "$install_dir/source/web"
+			corepack enable
 			ynh_hide_warnings npm install --global corepack@latest
-			export COREPACK_ENABLE_DOWNLOAD_PROMPT=0
-			export CI=1
-			pnpm_version=$(cat "$install_dir/source/web/package.json" \
-				| jq -r '.packageManager | split("@")[1] | split(".")[0]') #10
-			ynh_hide_warnings corepack enable pnpm
-			ynh_hide_warnings corepack use pnpm@latest-$pnpm_version
-
-		## Print versions
-			ynh_print_info "here8"
-			echo "node version: $(node -v)"
-			echo "npm version: $(npm -v)"
-			echo "pnpm version: $(pnpm -v)"
-
-		## Builing with pnpm
-			ynh_print_info "here9"
-			pushd "$install_dir/source/web"
-				ynh_hide_warnings ynh_exec_as_app pnpm install
-				ynh_hide_warnings ynh_exec_as_app pnpm build
-			popd
-			ynh_print_info "here10"
+			ynh_hide_warnings corepack prepare pnpm@latest --activate
+			ynh_hide_warnings ynh_exec_as_app pnpm install
+			ynh_hide_warnings ynh_exec_as_app NODE_ENV=production pnpm build
+		popd
 
 	# Compile the Go code into a static Go binary
 		ynh_print_info "Compiling the Go code into a static Go binary..."
