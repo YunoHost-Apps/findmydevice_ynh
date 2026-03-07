@@ -35,6 +35,10 @@ ram.runtime = "70M"
 	[install.domain]
 	type = "domain"
 
+	[install.path]
+	type = "path"
+	default = "/findmydevice"
+
 	[install.init_main_permission]
 	type = "group"
 	default = "visitors"
