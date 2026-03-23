@@ -7,7 +7,7 @@ name = "Find My Device"
 description.en = "Server for saving location data send by FMD"
 description.fr = "Serveur de sauvegarde des données de localisation envoyées par FMD"
 
-version = "0.14.1~ynh1"
+version = "0.14.2~ynh1"
 
 maintainers = ["ewilly"]
 
@@ -56,8 +56,8 @@ ram.runtime = "70M"
 	[resources.sources]
 
 		[resources.sources.main]
-		url = "https://gitlab.com/fmd-foss/fmd-server/-/archive/v0.14.1/fmd-server-v0.14.1.tar.bz2"
-		sha256 = "bad64d1e0c7bbdbcc79124de7cafc4698eb879ce8917da7fdbbd139133eaee34"
+		url = "https://gitlab.com/fmd-foss/fmd-server/-/archive/v0.14.2/fmd-server-v0.14.2.tar.bz2"
+		sha256 = "62c5599b1438bdab31f4dfb908a16f385699f888d6d4bc6dafc5411e4f0b8c11"
 
 		autoupdate.strategy = "latest_gitlab_release"
 
