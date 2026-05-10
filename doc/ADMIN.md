@@ -20,3 +20,12 @@ You just need to insert that in your prometheus config file:
         labels:
           app: "findmydevice"
 ```
+
+### Usage of the fmd-server-ctl binary to help FMD Server administrators
+
+The `fmd-server-ctl` binary is intended to help admins to find old, unused accounts that are candidates for deletion.
+To use it, just run in terminal:
+```
+yunohost app shell __APP__
+./fmd-server-ctl --help
+```

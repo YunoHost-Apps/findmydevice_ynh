@@ -20,16 +20,16 @@ myynh_build() {
 			ynh_exec_as_app pnpm build 2>&1 | col -b
 		popd
 
-	# Compile the Go code of fmd-server into a static Go binary
+	# Compile the Go code of fmd-server into a static Go binary located in install_dir
 		ynh_print_info "Compiling the fmd-server binary..."
 		pushd "$install_dir/source"
 			ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 go build -o "$install_dir/fmd-server"
 		popd
 
-	# Compile the Go code of fmd-server-ctl into a static Go binary
+	# Compile the Go code of fmd-server-ctl into a static Go binary located in data_dir
 		ynh_print_info "Compiling the fmd-server-ctl binary to help FMD Server administrators..."
 		pushd "$install_dir/source/ctl"
-			ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 go build -o "$install_dir/fmd-server-ctl"
+			ynh_hide_warnings ynh_exec_as_app CGO_ENABLED=1 go build -o "$data_dir/fmd-server-ctl"
 		popd
 
 	# Move necessary files
@@ -53,12 +53,18 @@ myynh_set_permissions() {
 	chmod -R o-rwx "$install_dir"
 
 	chmod +x "$install_dir/fmd-server"
-	chmod +x "$install_dir/fmd-server-ctl"
 
 	chown -R $app: "$data_dir"
 	chmod u=rwX,g=rX,o= "$data_dir"
 	chmod -R o-rwx "$data_dir"
 
+	chmod +x "$data_dir/fmd-server-ctl"
+
 	chown -R $app: "/var/log/$app"
 	chmod u=rw,g=r,o= "/var/log/$app"
+}
+
+# Set the system user home dir to data_dir
+mynh_set_home_to_datadir() {
+	usermod --home "$data_dir" "$app"
 }

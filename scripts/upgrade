@@ -65,6 +65,7 @@ yunohost service add $app --description="Server for saving location data send by
 #=================================================
 
 myynh_set_permissions
+mynh_set_home_to_datadir
 
 #=================================================
 # START SYSTEMD SERVICE
