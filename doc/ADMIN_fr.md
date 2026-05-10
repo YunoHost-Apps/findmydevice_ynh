@@ -27,5 +27,6 @@ Le binaire `fmd-server-ctl` a pour but d'aider les admins à identifier d'ancien
 Pour l'utiliser, il suffit d'exécuter dans un terminal :
 ```
 yunohost app shell __APP__
+cd $HOME
 ./fmd-server-ctl --help
 ```

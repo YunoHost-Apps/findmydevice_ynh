@@ -27,5 +27,6 @@ The `fmd-server-ctl` binary is intended to help admins to find old, unused accou
 To use it, just run in terminal:
 ```
 yunohost app shell __APP__
+cd $HOME
 ./fmd-server-ctl --help
 ```
