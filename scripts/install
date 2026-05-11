@@ -51,6 +51,7 @@ ynh_config_add --template="config.example.yml" --destination="$data_dir/config.y
 #=================================================
 
 myynh_set_permissions
+mynh_set_home_to_datadir
 
 #=================================================
 # START SYSTEMD SERVICE
