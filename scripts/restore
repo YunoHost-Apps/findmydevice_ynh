@@ -46,6 +46,7 @@ ynh_restore "/var/log/$app/"
 #=================================================
 
 myynh_set_permissions
+mynh_set_home_to_datadir
 
 #=================================================
 # RELOAD NGINX AND PHP-FPM OR THE APP SERVICE
