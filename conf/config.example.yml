@@ -19,8 +19,8 @@ UnixSocketChmod: 0660
 # The ports FMD Server should listen on.
 # Set the port value to -1 to disable it.
 # The secure port is only used if the cert and key are set (see below).
-PortSecure: 8443
-PortInsecure: __PORT__
+PortSecure: ""
+PortInsecure: "127.0.0.1:__PORT__"
 
 # The length for the user IDs that are generated
 UserIdLength: 5
@@ -46,7 +46,7 @@ RemoteIpHeader: "X-Real-IP"
 
 # Custom OpenStreetMap tile server
 # https://wiki.openstreetmap.org/wiki/Tile_servers
-TileServerUrl: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+TileServerUrl: "" # https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
 
 # Address and port to run Prometheus metrics exporter on.
 MetricsAddrPort: "127.0.0.1:__PORT_PROMETHEUS__"
